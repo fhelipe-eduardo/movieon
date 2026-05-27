@@ -489,6 +489,12 @@ section {
     object-fit: cover;
 }
 
+.letreiro-movieon {
+    font-family: "Bangers", system-ui;
+    font-size: 24px;
+    animation: animateText 5s linear infinite;
+}
+
 /* ── MÚSICAS ── */
 #musicas {
     background: var(--black);
@@ -1016,9 +1022,9 @@ footer {
     color: rgba(255, 255, 255, 0.85);
     text-transform: uppercase;
 }
-.marquee-dot {
+/* .marquee-dot {
     color: rgba(255, 255, 255, 0.4);
-}
+} */
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -1056,6 +1062,38 @@ footer {
     }
     to {
         transform: translateX(-50%);
+    }
+}
+@keyframes animateText {
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.10%,
+    92% {
+        color: #f6f6f6;
+        text-shadow: none;
+    }
+    18.1%,
+    20.1%,
+    30%,
+    50%,
+    60%,
+    65%,
+    80.1%,
+    90%,
+    92.1%,
+    100% {
+        color: #ffd701;
+        text-shadow:
+            0 0 10px #ffac09,
+            0 0 20px #ffac09,
+            0 0 40px #0b061f,
+            0 0 80px #ffac09,
+            0 0 160px #ffac09;
     }
 }
 
