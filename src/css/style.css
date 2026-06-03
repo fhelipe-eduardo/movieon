@@ -143,11 +143,9 @@ nav.scrolled {
     background: var(--red-glow);
     transform: scaleX(1.03);
 }
-
 .logo-nav {
     width: 60px;
 }
-
 audio {
     opacity: 0;
 }
@@ -1114,7 +1112,6 @@ footer {
             0 0 160px #ffac09;
     }
 }
-
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1149,6 +1146,7 @@ footer {
 @media (max-width: 900px) {
     nav {
         padding: 1rem 1.5rem;
+        position: relative;
     }
     .nav-links,
     .nav-cta {
@@ -1157,6 +1155,29 @@ footer {
     .nav-hamburger {
         display: flex;
     }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000;
+        padding: 1.5rem 0;
+        gap: 1rem;
+        text-align: center;
+    }
+    /* ---- Animação menu hamburguer ---- */
+    .nav-hamburger.active span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+    }
+    .nav-hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-hamburger.active span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+
     .section-inner {
         padding: 5rem 1.5rem;
     }
