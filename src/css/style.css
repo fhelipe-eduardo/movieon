@@ -148,6 +148,10 @@ nav.scrolled {
     width: 60px;
 }
 
+audio {
+    opacity: 0;
+}
+
 /* ── HERO ── */
 #hero {
     position: relative;
@@ -676,6 +680,10 @@ section {
     color: var(--white);
     letter-spacing: 0.03em;
 }
+.show-info .show-venue s {
+    text-decoration: line-through;
+    text-decoration-color: var(--red);
+}
 .show-location {
     font-size: 0.85rem;
     color: var(--white-dim);
@@ -709,6 +717,16 @@ section {
     background: var(--red);
     border-color: var(--red);
     box-shadow: 0 0 20px rgba(200, 0, 26, 0.4);
+}
+.btn-ticket.after:hover {
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.next-show {
+    animation: animateText 5s linear infinite;
 }
 
 /* ── MEMBROS ── */

@@ -1,5 +1,5 @@
 setTimeout(() => {
-    alert("PRÓXIMO SHOW: 08/08 - 21HS - BROOKS - RECREIO - RJ");
+    alert("PRÓXIMO SHOW: 17/07 - 21HS - BROOKS - MÉIER - RJ");
 }, 3000);
 
 // Nav scroll
@@ -37,11 +37,54 @@ document.querySelectorAll(".track").forEach((track) => {
 });
 
 // Form submit
-document.querySelector(".form-submit").addEventListener("click", function () {
-    this.textContent = "Mensagem Enviada ✓";
-    this.style.background = "#1a4a2a";
-    setTimeout(() => {
-        this.textContent = "Enviar Mensagem";
-        this.style.background = "";
-    }, 3000);
-});
+emailjs.init("3oj5JJCc1-mnyodN8");
+
+document
+    .getElementById("contact_form")
+    .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+        };
+
+        const serviceID = "service_3h2i9cy";
+        const templateID = "template_zgwol8q";
+        const submitButton = document.getElementById("submit_button");
+        submitButton.textContent = "Enviando....";
+        submitButton.disabled = true;
+
+        emailjs
+            .send(serviceID, templateID, formData)
+            .then(() => {
+                Toastify({
+                    text: "Mensagem enviada com sucesso!",
+                    duration: 3000,
+                    style: {
+                        background: "#28a745",
+                        color: "#f4f4f4",
+                    },
+                }).showToast();
+
+                document.getElementById("contact_form").reset();
+            })
+            .catch((error) => {
+                Toastify({
+                    text: "Erro ao enviar a mensagem!",
+                    duration: 3000,
+                    style: {
+                        background: "#dc3545",
+                        color: "#f4f4f4",
+                    },
+                }).showToast();
+
+                console.error("Erro no envio", error);
+            })
+            .finally(() => {
+                submitButton.textContent = "Enviar Mensagem";
+                submitButton.disabled = false;
+            });
+    });
