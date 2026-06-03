@@ -1167,6 +1167,9 @@ footer {
         gap: 1rem;
         text-align: center;
     }
+    .nav-cta.active {
+        display: block;
+    }
     /* ---- Animação menu hamburguer ---- */
     .nav-hamburger.active span:nth-child(1) {
         transform: translateY(6.5px) rotate(45deg);
